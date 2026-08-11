@@ -20,13 +20,11 @@ namespace MobileInputForCar
             
             if (rb.linearVelocity.magnitude > 0.5f)
             {
-                // Brake
                 isReversing = false;
                 CurrentCarController.BrakeInput(true);
             }
             else
             {
-                // Reverse
                 isReversing = true;
                 CurrentCarController.MoveInput(-1f);
             }
@@ -57,7 +55,6 @@ namespace MobileInputForCar
 
         public void OnSteerLeftButtonUp()
         {
-            // Only reset if we're releasing the currently active steering button
             if (currentSteerInput < 0)
             {
                 currentSteerInput = 0f;
@@ -67,7 +64,6 @@ namespace MobileInputForCar
 
         public void OnSteerRightButtonUp()
         {
-            // Only reset if we're releasing the currently active steering button
             if (currentSteerInput > 0)
             {
                 currentSteerInput = 0f;

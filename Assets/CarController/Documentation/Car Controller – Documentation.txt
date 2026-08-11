@@ -1,0 +1,151 @@
+Car Controller – Documentation
+
+2 assets have been used from asset store, heres the credit and link to them:
+https://assetstore.unity.com/packages/3d/vehicles/land/free-pickup-3d-model-273052
+https://assetstore.unity.com/packages/3d/vehicles/land/free-surfer-mini-van-with-cartoon-style-option-154558
+
+
+Table of Contents
+Introduction
+
+Installation
+
+Main Scene Overview
+
+Scene Setup Guide
+
+Vehicle Switching Controls
+
+Adding New Vehicles
+
+Camera System Overview
+
+Script References
+
+Input System Note
+
+Known Issues
+
+Support and Contact
+
+1. Introduction
+This Car Controller system is a flexible and customizable solution for adding drivable vehicles in Unity. It is designed to support all types of vehicles — from vans and trucks to supercars. The system includes a modular camera setup, configurable suspension and physics, and supports switching between multiple vehicles with simple controls.
+
+2. Installation
+Import the asset package into your Unity project.
+
+Locate the main demo scene inside the Scenes/ folder.
+
+Set "Input Handling" to “Input Manager (Old)” or “Both” under:
+Edit > Project Settings > Player > Other Settings > Active Input Handling.
+
+3. Main Scene Overview
+The main scene includes:
+
+A basic test terrain for driving and camera testing.
+
+Two example vehicles: one truck and one van.
+
+A pre-configured camera system with pan, zoom, and follow behavior.
+
+All vehicle objects are inactive by default and activated through switching.
+
+4. Scene Setup Guide
+Open the main scene.
+
+Find the CarManager GameObject.
+
+In the Inspector, assign the desired vehicle GameObjects to the cars list.
+
+Drag the main camera’s follow script into the cameraFollow field.
+
+Configure any visual or physics properties directly from the Inspector.
+
+Press Play to begin testing.
+
+5. Vehicle Switching Controls
+The following keys are used to switch between vehicles during play mode:
+
+Press 1 to activate the first vehicle.
+
+Press 2 to activate the second vehicle.
+
+Press 3, 4, etc. to switch to additional vehicles if assigned.
+
+Only one vehicle is active at a time. Switching automatically disables the current vehicle and updates the camera.
+
+6. Adding New Vehicles
+To add a new drivable vehicle:
+
+Create your vehicle GameObject with appropriate hierarchy (body, wheels, etc.).
+
+Add Wheel Colliders to all wheels.
+
+Add your custom driving logic or use the provided control scripts.
+
+Add the new vehicle to the cars list in the CarManager script.
+
+Press the corresponding number key (e.g., 3 for the third vehicle) to switch to it.
+
+The system is fully compatible with all types of vehicles — vans, trucks, hatchbacks, supercars, and more. You can fine-tune the behavior (speed, torque, turning, suspension) in the Inspector for each car individually.
+
+7. Camera System Overview
+The camera is designed to follow any vehicle and includes:
+
+Smooth follow behavior.
+
+Adjustable pan and zoom using mouse or touch input.
+
+Reset to default view function.
+
+Configurable parameters like zoom limits, pan speed, and follow damping.
+
+All settings can be adjusted in the Inspector for easy customization.
+
+8. Script References
+CarManager.cs
+cars – List of assigned vehicle GameObjects.
+
+currentCarIndex – Index of currently active vehicle.
+
+cameraFollow – Reference to the camera follow script.
+
+Handles vehicle switching and camera target updates.
+
+CameraFollow.cs
+Handles:
+
+Following the assigned target (vehicle).
+
+Zoom and pan controls.
+
+Reset functionality.
+
+All values configurable from the Inspector.
+
+9. Input System Note
+This asset uses Unity’s old Input System via Input.GetKey.
+To use Unity’s new Input System, input logic must be updated manually or Input Handling set to "Both" in Project Settings.
+
+10. mobile controls
+
+To implement mobile controls and switch from keyboard input, you need to replace traditional input checks
+ (like Input.GetKey) with touch-based input or Unity's Input System actions that support both platforms. 
+ Use on-screen UI buttons for actions like acceleration, braking, and steering, and connect them to your 
+ car or player controller via event triggers or scripts. For optimization, ensure UI elements are only 
+ active on mobile builds using platform checks like #if UNITY_ANDROID or Application.isMobilePlatform. 
+ Keep scripts lightweight and avoid unnecessary physics calculations to maintain smooth performance on
+  mobile devices.
+11. Known Issues
+Vehicles must be properly configured with Wheel Colliders for correct physics.
+
+Does not include damage, audio, or particle systems.
+
+Uses old input system by default.
+
+Vehicles must be manually configured before adding to the list.
+
+12. Support and Contact
+
+If you face any issues or need help configuring the controller for custom vehicles, contact the developer through the asset page or included support information. 
+email at freakydevscostumercare@gmail.com
